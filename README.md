@@ -1,7 +1,9 @@
 **BizCardX: Extracting Business Card Data with OCR**
 
 *BizCardX is a Streamlit web application that allows you to upload an image of a business card and extract relevant information from it using the easyOCR library.
+
 *You can also view, modify, or delete the extracted data within the app and save the extracted information into a MySQL database, along with the uploaded business card image. 
+
 *The database can store multiple entries, each with its own business card image and extracted information.
 
 **What is EasyOCR?**
