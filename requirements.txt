@@ -1,0 +1,7 @@
+opencv-python
+easyocr
+streamlit
+pymysql
+pillow
+matplotlib
+pandas
