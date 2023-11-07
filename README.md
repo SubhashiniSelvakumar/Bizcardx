@@ -17,23 +17,35 @@ Once EasyOCR is installed, only one import statement is required to import the p
 From there, all you need is two lines of code to perform OCR — one to initialize the Reader class and then another to OCR the image via the readtext function.
 
 **Technologies Used**
+
 1)Python
+
 2)easyOCR
+
 3)Streamlit
+
 4)MySQL
+
 5)Pandas
 
 **Getting Started**
+
 Install the required Python libraries:
+
 pip install streamlit easyocr pymysql pillow opencv-python matplotlib pandas
+
 **MySQL server** set up with the following configurations:
 
 Host: localhost
+
 User: root
+
 Password: Teddy756
+
 Port: 3306
 
 **Project Overview**
+
 In this Streamlit web app, you can perform various tasks related to business cards:
 
 **Home:** Provides an overview of the application, its features, and technologies used.
@@ -60,9 +72,11 @@ In this Streamlit web app, you can perform various tasks related to business car
 4)Click "View updated data" to see the updated business card data.
 
 **Run the Streamlit app:**
+
 streamlit run Bizcardx.py
 
 **Acknowledgments**
+
 Thanks to the developers of the libraries and tools used in this application.
 Icon source: Image Source
 
