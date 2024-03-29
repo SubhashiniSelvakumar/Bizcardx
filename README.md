@@ -30,11 +30,11 @@ From there, all you need is two lines of code to perform OCR — one to initiali
 
 **MySQL server** set up with the following configurations:
 
-Host: localhost
+Host: 127.0.0.1
 
 User: root
 
-Password: Teddy756
+Password: Teddy@756
 
 Port: 3306
 
