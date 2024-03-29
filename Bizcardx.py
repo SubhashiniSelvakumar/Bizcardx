@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_option_menu import option_menu
 import easyocr
-import pymysql
+import mysql.connector
 from PIL import Image
 import cv2
 import os
@@ -43,13 +43,13 @@ selected = st.selectbox("", list(options.keys()), format_func=lambda option: opt
 reader = easyocr.Reader(['en'])
 
 # CONNECTING WITH MYSQL DATABASE
-mydb = pymysql.connect(
-    host="localhost",
+mydb = mysql.connector.connect(
+    host="127.0.0.1",
     user="root",
-    password="Teddy756",
-    port=3306,
+    password="Teddy@756",
+    port="3306" 
+    )
     
-)
 mycursor = mydb.cursor()
 mycursor.execute("CREATE DATABASE IF NOT EXISTS bizcardx")
 mycursor.execute("USE bizcardx")
@@ -74,8 +74,10 @@ mycursor.execute('''CREATE TABLE IF NOT EXISTS card_data
 if selected == "Home":
     col1,col2 = st.columns(2)
     with col1:       
-        st.write("## :green[**Technologies Used :**]  Python,easy OCR, Streamlit, SQL, Pandas")
-        st.write("## :green[**Overview :**] In this streamlit web app you can upload an image of a business card and extract relevant information from it using easyOCR. You can view, modify or delete the extracted data in this app. This app would also allow users to save the extracted information into a database along with the uploaded business card image. The database would be able to store multiple entries, each with its own business card image and extracted information.")
+        st.write("## :green[Technologies Used :]")
+        st.markdown("Python,easy OCR, Streamlit, SQL, Pandas")
+        st.write("## :green[Overview :]")
+        st.markdown("In this streamlit web app you can upload an image of a business card and extract relevant information from it using easyOCR. You can view, modify or delete the extracted data in this app. This app would also allow users to save the extracted information into a database along with the uploaded business card image. The database would be able to store multiple entries, each with its own business card image and extracted information.")
     with col2:
         st.image("D:\Subhashini\Datascience\Tools\home.jpg")
         
@@ -95,9 +97,7 @@ if selected == "Upload & Extract":
             with open(os.path.join("uploaded_cards", uploaded_card.name), "wb") as f:
                 f.write(uploaded_card.getbuffer())
 
-
         save_card(uploaded_card)
-
 
         def image_preview(image, res):
             for (bbox, text, prob) in res:
@@ -107,7 +107,7 @@ if selected == "Upload & Extract":
                 tr = (int(tr[0]), int(tr[1]))
                 br = (int(br[0]), int(br[1]))
                 bl = (int(bl[0]), int(bl[1]))
-                cv2.rectangle(image, tl, br, (0, 255, 0), 2)
+                cv2.rectangle(image, tl, br, (255, 255, 0), 2)
                 cv2.putText(image, text, (tl[0], tl[1] - 10),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
             plt.rcParams['figure.figsize'] = (15, 15)
